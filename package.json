@@ -1,6 +1,6 @@
 {
   "name": "bruno2postman",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "experimental utility to convert Bruno collections to Postman",
   "main": "index.js",
   "bin": {
