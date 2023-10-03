@@ -3,17 +3,28 @@
   "version": "0.0.1",
   "description": "experimental utility to convert Bruno collections to Postman",
   "main": "index.js",
+  "bin": {
+    "bruno2postman": "index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wtpisaac/bruno2postman.git"
   },
-  "author": "Isaac Trimble-Pederson <wtpisaac@gmail.com>",
+  "author": "Isaac Trimble-Pederson <wtpisaac@gmail.com> (https://wtpisaac.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wtpisaac/bruno2postman/issues"
   },
-  "homepage": "https://github.com/wtpisaac/bruno2postman#readme"
+  "homepage": "https://github.com/wtpisaac/bruno2postman#readme",
+  "volta": {
+    "node": "18.18.0"
+  },
+  "dependencies": {
+    "@usebruno/lang": "^0.4.0",
+    "commander": "^11.0.0",
+    "postman-collection": "^4.2.1"
+  }
 }
