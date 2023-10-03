@@ -38,7 +38,12 @@ const convertBrunoRequestToPostmanRequest = (
                 
                 requestBody = new RequestBody({
                     raw: bodyContents,
-                    mode: 'raw'
+                    mode: 'raw',
+                    options: {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
                 });
                 break;
             default:
