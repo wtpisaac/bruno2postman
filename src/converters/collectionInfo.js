@@ -1,5 +1,6 @@
 /*
 collectionInfo.js - conversion method for Bruno collection information
+part of bruno2postman, a Bruno collection converter tool.
 
 Copyright (c) 2023 Isaac Trimble-Pederson
 Licensed under the MIT License

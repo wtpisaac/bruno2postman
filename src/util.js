@@ -1,3 +1,11 @@
+/*
+util.js - helper utilities for bruno2postman
+part of bruno2postman, a Bruno collection converter tool.
+
+Copyright (c) 2023 Isaac Trimble-Pederson
+Licensed under the MIT License
+*/
+
 const { bruToJsonV2 } = require('@usebruno/lang');
 const fs = require('fs');
 const path = require('path');

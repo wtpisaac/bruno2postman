@@ -1,4 +1,12 @@
 /*
+types.js - common types for bruno2postman
+part of bruno2postman, a Bruno collection converter tool.
+
+Copyright (c) 2023 Isaac Trimble-Pederson
+Licensed under the MIT License
+*/
+
+/*
 Raw Types - representative of what comes out of the JSON files.
 
 TODO: Should probably make things safer and do checks when converting...

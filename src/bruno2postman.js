@@ -1,5 +1,6 @@
 /*
-index.js - main CLI scaffolding of bruno2postman
+bruno2postman.js - main program logic once CLI args are parsed.
+part of bruno2postman, a Bruno collection converter tool.
 
 Copyright (c) 2023 Isaac Trimble-Pederson
 Licensed under the MIT License
@@ -61,8 +62,8 @@ const convertBrunoCollectionSubsetToPostmanItemGroup = (
  * @throws
  */
 const bruno2postman = (inputPath, outputPath) => {
-    // TODO: Work with Bruno collection folder and import into memory
     // Bruno Collection Info
+    // Read and parse Bruno collection
     const brunoCollectionFile = fs.readFileSync(
         path.join(
             inputPath, 'bruno.json'
@@ -74,28 +75,28 @@ const bruno2postman = (inputPath, outputPath) => {
     const brunoRawCollectionInfo = JSON.parse(brunoCollectionFile);
     const postmanCollectionInfo = convertBrunoMetadataToPostman(brunoRawCollectionInfo);
 
+    // Read and load Bruno collection into memory
     const rawBrunoCollectionContents = tree(inputPath, {
         excludes: ['environments']
     });
 
     // Create new Postman collection
     const collection = new postman.Collection(undefined, undefined);
+    
+    // Do the bulk of conversion for request hiearchy
     collection.item = convertBrunoCollectionSubsetToPostmanItemGroup(
         rawBrunoCollectionContents,
         'ROOT'
     ).toJSON().item;
     
-    // TODO: Work with Postman collection here
-    // Set metadata
+    // Transfer collection metadata
     collection.name = postmanCollectionInfo.name;
     collection.version = postmanCollectionInfo.version;
 
+    // Write collection
     const outputJson = JSON.stringify(collection, null, 2);
     const outputFile = fs.openSync(outputPath, 'w');
     fs.writeFileSync(outputFile, outputJson);
-
-    const attempt = JSON.parse(fs.readFileSync(outputPath));
-    const attemptedCollection = new postman.Collection(attempt);
 };
 
 module.exports = {
