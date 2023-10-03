@@ -2,6 +2,11 @@
 an experimental, WIP utility to convert Bruno collections into Postman
 collections.
 
+installation:
+```
+npm i -g bruno2postman
+```
+
 usage:
 ```
 bruno2postman <input bruno collection folder> <output postman json file>
