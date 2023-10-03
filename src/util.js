@@ -20,7 +20,6 @@ const tree = (inputPath, options) => {
         const fullPath = path.join(result.path, result.name);
 
         if(options?.excludes?.includes(result.name) ?? false) {
-            console.warn('excluding ${fullPath}')
             continue;
         }
 
@@ -29,7 +28,6 @@ const tree = (inputPath, options) => {
             continue;
         } else if(result.isFile()) {
             if(path.extname(fullPath) !== '.bru') {
-                console.warn(`Ignoring file at ${fullPath}, not a .bru file`)
                 continue;
             }
 
